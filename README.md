@@ -1,6 +1,6 @@
 # About
-##### This is a Weather App implemented in the terminal. The user should provide requested city or coordinates aswell as the period for their forecast.
-##### Default behaviour is to display current (hourly) weather in Västerås.
+This is a Weather App implemented in the terminal. The user should provide requested city or coordinates aswell as the period for their forecast.
+Default behaviour is to display current (hourly) weather in Västerås.
 
 
 # Dependencies
