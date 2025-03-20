@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/mnt/c/Programmering/Personal/Projects/WeatherTerminal",
+  "command": "/usr/bin/c++  -I/mnt/c/Programmering/Personal/Projects/WeatherTerminal/include  -o CMakeFiles/WeatherApp.dir/src/main.cpp.o -c /mnt/c/Programmering/Personal/Projects/WeatherTerminal/src/main.cpp",
+  "file": "/mnt/c/Programmering/Personal/Projects/WeatherTerminal/src/main.cpp"
+}
+]

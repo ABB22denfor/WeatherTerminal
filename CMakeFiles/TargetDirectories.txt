@@ -1,0 +1,3 @@
+/mnt/c/Programmering/Personal/Projects/WeatherTerminal/CMakeFiles/WeatherApp.dir
+/mnt/c/Programmering/Personal/Projects/WeatherTerminal/CMakeFiles/edit_cache.dir
+/mnt/c/Programmering/Personal/Projects/WeatherTerminal/CMakeFiles/rebuild_cache.dir
