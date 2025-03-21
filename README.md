@@ -16,5 +16,5 @@ sudo apt install libcurl4-openssl-dev nlohmann-json3-dev
 
 # Usage
 ```bash
-./WeatherApp -p city || lon lat -t time_period
+./WeatherApp -p <city|lon lat> -t <time_period>
 ```
