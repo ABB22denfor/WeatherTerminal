@@ -1,7 +1,5 @@
 //  Standard libraries:
-#include <iostream>
 #include <vector>
-#include <sstream>
 #include <string>
 
 // Header files:
@@ -23,9 +21,11 @@ void execute_args(int argc, char* argv[]){
 
     if(flag == "-p" || flag == "--position"){
       if((i+2 < argc) && isFloat(argv[i+1]) && isFloat(argv[i+2])){
+        // If input is coordinates:
         parse_response(request_data(argv[i+1], argv[i+2])); 
       }
       else if(i+1 < argc){
+        // If input is city:
         double longitude, latitude;
         get_coords(argv[i+1], longitude, latitude);
         parse_response(request_data(std::to_string(latitude), std::to_string(longitude)));
