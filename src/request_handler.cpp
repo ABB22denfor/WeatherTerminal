@@ -1,10 +1,11 @@
 #include <iostream>
+#include <format>
 
 #include <curl/curl.h>
 #include <curl/easy.h>
 #include "nlohmann/json.hpp"
 
-#include "request_handler.h"
+#include "../include/request_handler.h"
 
 size_t WriteCallback(void* contents, size_t size, size_t nmemb, std::string* output){
   size_t totalSize = size * nmemb;
@@ -43,8 +44,6 @@ bool get_coords(const std::string city, double& lon, double& lat){
     return false;
 }
 
-
-
 std::string request_data(std::string latitude, std::string longitude){
   CURL* curl;
   CURLcode res;
@@ -70,4 +69,3 @@ std::string request_data(std::string latitude, std::string longitude){
 
   return response_data;
 }
-
