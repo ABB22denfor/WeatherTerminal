@@ -81,12 +81,12 @@ clean: CMakeFiles/WeatherApp.dir/clean
 CMakeFiles/WeatherApp.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/WeatherApp.dir/build.make CMakeFiles/WeatherApp.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/WeatherApp.dir/build.make CMakeFiles/WeatherApp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Programmering/Personal/Projects/WeatherTerminal/CMakeFiles --progress-num=1,2 "Built target WeatherApp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Programmering/Personal/Projects/WeatherTerminal/CMakeFiles --progress-num=1,2,3,4 "Built target WeatherApp"
 .PHONY : CMakeFiles/WeatherApp.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/WeatherApp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Programmering/Personal/Projects/WeatherTerminal/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Programmering/Personal/Projects/WeatherTerminal/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/WeatherApp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Programmering/Personal/Projects/WeatherTerminal/CMakeFiles 0
 .PHONY : CMakeFiles/WeatherApp.dir/rule

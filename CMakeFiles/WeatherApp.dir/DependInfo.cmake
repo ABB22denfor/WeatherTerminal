@@ -9,6 +9,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/mnt/c/Programmering/Personal/Projects/WeatherTerminal/src/main.cpp" "CMakeFiles/WeatherApp.dir/src/main.cpp.o" "gcc" "CMakeFiles/WeatherApp.dir/src/main.cpp.o.d"
+  "/mnt/c/Programmering/Personal/Projects/WeatherTerminal/src/request_handler.cpp" "CMakeFiles/WeatherApp.dir/src/request_handler.cpp.o" "gcc" "CMakeFiles/WeatherApp.dir/src/request_handler.cpp.o.d"
+  "/mnt/c/Programmering/Personal/Projects/WeatherTerminal/src/response_parser.cpp" "CMakeFiles/WeatherApp.dir/src/response_parser.cpp.o" "gcc" "CMakeFiles/WeatherApp.dir/src/response_parser.cpp.o.d"
   )
 
 # Targets to which this target links.
