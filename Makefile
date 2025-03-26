@@ -153,6 +153,54 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/WeatherApp.dir/build.make CMakeFiles/WeatherApp.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/request_handler.o: src/request_handler.cpp.o
+.PHONY : src/request_handler.o
+
+# target to build an object file
+src/request_handler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WeatherApp.dir/build.make CMakeFiles/WeatherApp.dir/src/request_handler.cpp.o
+.PHONY : src/request_handler.cpp.o
+
+src/request_handler.i: src/request_handler.cpp.i
+.PHONY : src/request_handler.i
+
+# target to preprocess a source file
+src/request_handler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WeatherApp.dir/build.make CMakeFiles/WeatherApp.dir/src/request_handler.cpp.i
+.PHONY : src/request_handler.cpp.i
+
+src/request_handler.s: src/request_handler.cpp.s
+.PHONY : src/request_handler.s
+
+# target to generate assembly for a file
+src/request_handler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WeatherApp.dir/build.make CMakeFiles/WeatherApp.dir/src/request_handler.cpp.s
+.PHONY : src/request_handler.cpp.s
+
+src/response_parser.o: src/response_parser.cpp.o
+.PHONY : src/response_parser.o
+
+# target to build an object file
+src/response_parser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WeatherApp.dir/build.make CMakeFiles/WeatherApp.dir/src/response_parser.cpp.o
+.PHONY : src/response_parser.cpp.o
+
+src/response_parser.i: src/response_parser.cpp.i
+.PHONY : src/response_parser.i
+
+# target to preprocess a source file
+src/response_parser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WeatherApp.dir/build.make CMakeFiles/WeatherApp.dir/src/response_parser.cpp.i
+.PHONY : src/response_parser.cpp.i
+
+src/response_parser.s: src/response_parser.cpp.s
+.PHONY : src/response_parser.s
+
+# target to generate assembly for a file
+src/response_parser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WeatherApp.dir/build.make CMakeFiles/WeatherApp.dir/src/response_parser.cpp.s
+.PHONY : src/response_parser.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -165,6 +213,12 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/request_handler.o"
+	@echo "... src/request_handler.i"
+	@echo "... src/request_handler.s"
+	@echo "... src/response_parser.o"
+	@echo "... src/response_parser.i"
+	@echo "... src/response_parser.s"
 .PHONY : help
 
 
