@@ -35,16 +35,17 @@ sudo apt install libcurl4-openssl-dev nlohmann-json3-dev libncurses5-dev libncur
 - -f | --favorite :  
     Favorite city or location that the app will save in database. No limit to amount of favorite cities.  
 *(default: "None")*
+- -v | --verbose :
+    Enable verbose mode, where program outputs using ncurses instead of regular command-line.  
+*(default: false)*
 
 #### Example:
 ```bash
 ./WeatherApp -p 59.6162 16.5528 -t week -f Stockholm Vasteras Lidkoping
 ```
 
-#### WARNING
-If options are omitted and the user hasn't set a favorite city this app might use geolocation to access the user's current location.  
-
-   
+#### WARNING!
+If options are omitted and the user hasn't set a favorite city this app might use geolocation to access the user's current location.   
   
 ##### Temp for compilation:
 ```bash
