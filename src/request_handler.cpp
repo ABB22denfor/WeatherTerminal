@@ -1,9 +1,4 @@
-#include <iostream>
-#include <format>
-
-#include <curl/curl.h>
-#include <curl/easy.h>
-#include "nlohmann/json.hpp"
+#include "../include/pch.h"
 
 #include "../include/request_handler.h"
 
@@ -44,7 +39,7 @@ bool get_coords(const std::string city, std::string& lon, std::string& lat){
     return false;
 }
 
-std::string request_data(std::string latitude, std::string longitude, std::string_view req_time){
+std::string request_data(std::string latitude, std::string longitude, const std::string& req_time){
   CURL* curl;
   CURLcode res;
 
@@ -77,5 +72,5 @@ std::string request_data(std::string latitude, std::string longitude, std::strin
     curl_easy_cleanup(curl);
   }
 
-  return response_data;
+  return std::move(response_data);
 }
