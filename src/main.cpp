@@ -47,7 +47,7 @@ void execute_args(int argc, char* argv[]){
         req_time = argv[i+1];
       }
       else if(i+1 == argc){
-        std::cerr << "Options for flag omitted. Aborti, req_timeng..." << '\n';
+        std::cerr << "Options for flag omitted. Aborting..." << '\n';
         return;
       }
       else{
