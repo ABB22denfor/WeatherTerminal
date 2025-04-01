@@ -13,7 +13,7 @@ size_t WriteCallback(void* contents, size_t size, size_t nmemb, std::string* out
   return totalSize;
 }
 
-bool get_coords(const std::string city, double& lon, double& lat){
+bool get_coords(const std::string city, std::string& lon, std::string& lat){
     CURL* curl = curl_easy_init();
     if (!curl) return false;
 
@@ -33,8 +33,8 @@ bool get_coords(const std::string city, double& lon, double& lat){
     try {
         auto jsonData = nlohmann::json::parse(response);
         if (!jsonData.empty()) {
-            lat = stod(jsonData[0]["lat"].get<std::string>());
-            lon = stod(jsonData[0]["lon"].get<std::string>());
+            lat = jsonData[0]["lat"].get<std::string>();
+            lon = jsonData[0]["lon"].get<std::string>();
             return true;
         }
     } catch (...) {
@@ -44,11 +44,21 @@ bool get_coords(const std::string city, double& lon, double& lat){
     return false;
 }
 
-std::string request_data(std::string latitude, std::string longitude){
+std::string request_data(std::string latitude, std::string longitude, std::string_view req_time){
   CURL* curl;
   CURLcode res;
 
-  std::string req_url = std::format("https://api.open-meteo.com/v1/forecast?latitude={}&longitude={}&hourly=temperature_2m&timezone=Europe%2FBerlin&forecast_days=1", latitude, longitude);
+  std::string req_url;
+  
+  if(req_time == "day"){
+    req_url = std::format("https://api.open-meteo.com/v1/forecast?latitude={}&longitude={}&hourly=temperature_2m&timezone=Europe%2FBerlin&forecast_days=1", latitude, longitude); 
+  }
+  else if(req_time == "now"){
+    req_url = std::format("https://api.open-meteo.com/v1/forecast?latitude={}&longitude={}&hourly=temperature_2m&timezone=Europe%2FBerlin&forecast_hours=1", latitude, longitude);
+  }
+  else if(req_time == "week"){
+    req_url = std::format("https://api.open-meteo.com/v1/forecast?latitude={}&longitude={}&hourly=temperature_2m&timezone=Europe%2FBerlin&forecast_days=7", latitude, longitude);
+  }
   
   std::string response_data;
   
