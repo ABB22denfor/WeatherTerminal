@@ -3,7 +3,6 @@
 
 #include <string>
 
-std::string get_sys_time(const std::string& req_format);
-std::string parse_response(std::string res);
+std::string_view parse_response(std::string_view res);
 
 #endif // !RESPONSE_PARSER_H

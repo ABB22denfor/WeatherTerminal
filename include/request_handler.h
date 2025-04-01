@@ -4,7 +4,7 @@
 #include <string>
 
 size_t WriteCallback(void* contents, size_t size, size_t nmemb, std::string* output);
-bool get_coords(const std::string city, double& lon, double& lat);
-std::string request_data(std::string latitude, std::string longitude);
+bool get_coords(const std::string city, std::string& lon, std::string& lat);
+std::string request_data(std::string latitude, std::string longitude, std::string_view req_time);
 
 #endif // !REQUEST_HANDLER_H
