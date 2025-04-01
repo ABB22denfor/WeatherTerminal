@@ -48,5 +48,5 @@ If options are omitted and the user hasn't set a favorite city this app might us
   
 ##### Temp for compilation:
 ```bash
-g++-13 -std=c++20 src/main.cpp -o main -lcurl -lncurses 
+g++-13 -std=c++20 main.cpp request_handler.cpp response_parser.cpp -o main -lcurl
 ```
