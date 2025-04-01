@@ -1,15 +1,12 @@
-#include <iostream>
-#include <ctime>
-
-#include <nlohmann/json.hpp>
+#include "../include/pch.h"
 
 #include "../include/response_parser.h"
 
 std::string_view parse_response(std::string_view res){
-  nlohmann::json json_res = nlohmann::json::parse(res);
+  const nlohmann::json json_res = nlohmann::json::parse(res);
 
-  std::vector<std::string> time_array = json_res["hourly"]["time"].get<std::vector<std::string>>();
-  std::vector<int> temp_array = json_res["hourly"]["temperature_2m"].get<std::vector<int>>();
+  const std::vector<std::string> time_array = json_res["hourly"]["time"].get<std::vector<std::string>>();
+  const std::vector<int> temp_array = json_res["hourly"]["temperature_2m"].get<std::vector<int>>();
 
   if(time_array.size() != temp_array.size()){
     std::cerr << "ERR: Invalid Fetch";
