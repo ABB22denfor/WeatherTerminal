@@ -25,6 +25,9 @@ void execute_args(int argc, char* argv[]){
   std::string req_time = "day";
 
   bool verbose = false;
+  bool added_favorites = false;
+
+  std::vector<std::string> formatted_data;
 
 
   for(int i = 1; i < argc; ++i){
@@ -65,7 +68,9 @@ void execute_args(int argc, char* argv[]){
         }
         favorite_cities.push_back(argv[i+j]);
       }
-      write_to_cache("../cache/user_cache.json", favorite_cities);
+      write_to_cache("../cache/user_cache.json", favorite_cities, {});
+
+      added_favorites = true;
     }
     else if(flag == "-c" || flag == "--clear"){
       clear_cache("../cache/user_cache.json");
@@ -79,7 +84,14 @@ void execute_args(int argc, char* argv[]){
 
   if(!latitude.empty() && !longitude.empty()){
     response = request_data(latitude, longitude, req_time);
-    parse_response(response); 
+    formatted_data = parse_response(response, latitude, longitude, req_time); 
+    if(formatted_data[0] == "ERROR"){
+      return;
+    }
+    write_to_cache("../cache/user_cache.json", formatted_data, {latitude, longitude});
+  }
+  else if (added_favorites){
+    return;
   }
   else{
     print_favorites();
