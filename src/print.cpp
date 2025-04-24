@@ -14,7 +14,19 @@ void print_favorites(){
   for(int i = 0; i < favorite_cities.size(); ++i){
     get_coords(favorite_cities[i], longitude, latitude);
     std::cout << favorite_cities[i] << '\t';
-    parse_response(request_data(latitude, longitude, "now"));
+    parse_response(request_data(latitude, longitude, "now"), latitude, longitude, "now");
+  }  
+}
+
+void print_data(const std::string& data_str, int index){
+  if(((index + 1) % 4) == 0 && index != 0){
+    std::cout << data_str << '\n';
   }
-  
+  else{
+    std::cout << data_str << '\t' << '\t';
+  }
+
+  if(((index + 1) % 24) == 0){
+    std::cout << '\n';
+  }
 }
