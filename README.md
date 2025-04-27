@@ -38,6 +38,9 @@ sudo apt install libcurl4-openssl-dev nlohmann-json3-dev libncurses5-dev libncur
 - -v | --verbose :
     Enable verbose mode, where program outputs using ncurses instead of regular command-line.  
 *(default: false)*
+- -c | --clear:  
+    Clears the cache of all saved data.  
+*(default: "None")*
 
 #### Example:
 ```bash
