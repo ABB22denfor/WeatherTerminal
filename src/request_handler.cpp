@@ -1,11 +1,44 @@
 #include "../include/pch.h"
 
 #include "../include/request_handler.h"
+#include "../include/cache.h"
+#include "../include/print.h"
+
+#include <unordered_map>
+#include <cstdlib>
 
 size_t WriteCallback(void* contents, size_t size, size_t nmemb, std::string* output){
   size_t totalSize = size * nmemb;
   output->append((char*)contents, totalSize);
   return totalSize;
+}
+
+std::string get_sys_time(std::string format){
+  std::time_t now = std::time(nullptr);
+
+  // Convert to GMT+2
+  now += 2 * 60 * 60;
+
+  std::tm* utc_tm = std::gmtime(&now);
+
+  std::ostringstream oss;
+  oss << std::put_time(utc_tm, format.c_str());
+
+  return oss.str();
+}
+
+bool check_time_difference(const std::string& curr_time, const std::string& stored_time, const int diff){
+  int curr_h, curr_m, stored_h, stored_m;
+
+  sscanf(curr_time.c_str(), "%d:%d", &curr_h, &curr_m);
+  sscanf(stored_time.c_str(), "%d:%d", &stored_h, &stored_m);
+
+  int curr_minutes = curr_h * 60 + curr_m;
+  int stored_minutes = stored_h * 60 + stored_m;
+
+  int difference = std::abs(curr_minutes - stored_minutes);
+
+  return difference >= diff;
 }
 
 bool get_coords(const std::string city, std::string& lon, std::string& lat){
@@ -43,17 +76,60 @@ std::string request_data(std::string latitude, std::string longitude, const std:
   CURL* curl;
   CURLcode res;
 
+  bool new_req = false;
+
   std::string req_url;
+  std::string time_format;
+
+  std::string coord_str = latitude + " " + longitude;
+
+  std::unordered_map<std::string, std::unordered_map<std::string, std::vector<std::string>>> data_map = read_from_cache("../cache/user_cache.json")["data"];
+
   
   if(req_time == "day"){
     req_url = std::format("https://api.open-meteo.com/v1/forecast?latitude={}&longitude={}&hourly=temperature_2m&timezone=Europe%2FBerlin&forecast_days=1", latitude, longitude); 
   }
   else if(req_time == "now"){
-    req_url = std::format("https://api.open-meteo.com/v1/forecast?latitude={}&longitude={}&hourly=temperature_2m&timezone=Europe%2FBerlin&forecast_hours=1", latitude, longitude);
+    req_url = std::format("https://api.open-meteo.com/v1/forecast?latitude={}&longitude={}&current=temperature_2m&timezone=Europe%2FBerlin", latitude, longitude);
   }
   else if(req_time == "week"){
     req_url = std::format("https://api.open-meteo.com/v1/forecast?latitude={}&longitude={}&hourly=temperature_2m&timezone=Europe%2FBerlin&forecast_days=7", latitude, longitude);
   }
+
+  if(data_map.find(coord_str) != data_map.end()){
+    if(data_map[coord_str].find(req_time) != data_map[coord_str].end()){
+      std::string empty_str = " ";
+
+      std::string i_data_str = data_map[coord_str][req_time][0];
+      
+      std::size_t colon_pos = i_data_str.find(":");
+
+      std::string stored_date = i_data_str.substr(0, colon_pos);
+      std::string stored_rest = i_data_str.substr(colon_pos, -1);
+
+      std::istringstream iss(stored_rest);
+
+      std::string colon, stored_time;
+      iss >> colon >> stored_time;
+
+      if(stored_date == get_sys_time("%B %d %Y")){
+        if(check_time_difference(get_sys_time("%H:%M"), stored_time, 15) && req_time == "now"){
+          new_req = true;
+        }
+      }
+      else{
+        new_req = true;
+      }
+      if(!new_req){
+        std::cout << "OUTPUT FROM CACHE \n";
+        for(int i = 0; i < data_map[coord_str][req_time].size(); ++i){
+          print_data(data_map[coord_str][req_time][i], i);
+        }
+        return empty_str;
+      }
+    }
+  }
+
   
   std::string response_data;
   
