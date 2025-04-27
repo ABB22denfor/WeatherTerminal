@@ -2,7 +2,9 @@
 #define RESPONSE_PARSER_H
 
 #include <string>
+#include <vector>
 
-std::string_view parse_response(std::string_view res);
+std::string getCity(std::string lat, std::string lon);
+std::vector<std::string> parse_response(std::string_view res, const std::string lat, const std::string lon, const std::string req_time);
 
 #endif // !RESPONSE_PARSER_H
