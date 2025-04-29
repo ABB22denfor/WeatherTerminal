@@ -5,6 +5,7 @@
 #include "../include/print.h"
 
 #include <sstream>
+#include <cmath>
 #include "../include/date/date.h"
 
 std::string formatTime(const std::string& iso8601Time){
@@ -56,6 +57,47 @@ std::string getCity(std::string lat, std::string lon){
 
 }
 
+std::string parse_weather_code(const int& weather_code){
+    static const std::unordered_map<int, std::string> wmoDesc = {
+        {0, "Clear sky"},
+        {1, "Mainly clear"},
+        {2, "Partly cloudy"},
+        {3, "Overcast"},
+        {45, "Fog"},
+        {48, "Depositing rime fog"},
+        {51, "Light drizzle"},
+        {53, "Moderate drizzle"},
+        {55, "Dense drizzle"},
+        {56, "Light freezing drizzle"},
+        {57, "Dense freezing drizzle"},
+        {61, "Slight rain"},
+        {63, "Moderate rain"},
+        {65, "Heavy rain"},
+        {66, "Light freezing rain"},
+        {67, "Heavy freezing rain"},
+        {71, "Slight snow fall"},
+        {73, "Moderate snow fall"},
+        {75, "Heavy snow fall"},
+        {77, "Snow grains"},
+        {80, "Slight rain showers"},
+        {81, "Moderate rain showers"},
+        {82, "Violent rain showers"},
+        {85, "Slight snow showers"},
+        {86, "Heavy snow showers"},
+        {95, "Thunderstorm"},
+        {96, "Thunderstorm with slight hail"},
+        {99, "Thunderstorm with heavy hail"}
+    };
+
+  auto it = wmoDesc.find(weather_code);
+  if(it != wmoDesc.end()){
+    return it->second;
+  }
+  else{
+    return "Unknown weather code";
+  }
+}
+
 
 std::vector<std::string> parse_response(std::string_view res, const std::string lat, const std::string lon, const std::string req_time){
   nlohmann::json json_res;
@@ -71,16 +113,23 @@ std::vector<std::string> parse_response(std::string_view res, const std::string 
 
   if(req_time == "now"){
     const std::string time_str = json_res["current"]["time"].get<std::string>();
-    const int temp = json_res["current"]["temperature_2m"].get<int>();
+    const double temp = json_res["current"]["temperature_2m"].get<double>();
+    const double prec = json_res["current"]["precipitation"].get<double>();
+    const int weather_code = json_res["current"]["weather_code"].get<int>();
+    const double wind_speed = json_res["current"]["wind_speed_10m"].get<double>();
 
     std::ostringstream oss;
-    oss << formatTime(time_str) << '\t' << temp << "°C";
-    print_data(oss.str(), 0);
+    oss << formatTime(time_str) << '\t' << temp << "°C\t" << std::round(wind_speed * 10.0) / 10.0 << "m/s\t" << static_cast<int>(std::round(prec)) << "mm\t" << parse_weather_code(weather_code) << "\t";
+    print_data(oss.str(), 9999);
     joined_array.push_back(oss.str());
   }
   else{
     const std::vector<std::string> time_array = json_res["hourly"]["time"].get<std::vector<std::string>>();
-    const std::vector<int> temp_array = json_res["hourly"]["temperature_2m"].get<std::vector<int>>();
+    const std::vector<double> temp_array = json_res["hourly"]["temperature_2m"].get<std::vector<double>>();
+    const std::vector<double> prec_arr = json_res["hourly"]["precipitation"].get<std::vector<double>>();
+    const std::vector<int> weather_code_arr = json_res["hourly"]["weather_code"].get<std::vector<int>>();
+    const std::vector<double> wind_speed_arr = json_res["hourly"]["wind_speed_10m"].get<std::vector<double>>();
+
 
     if(time_array.size() != temp_array.size()){
       std::cerr << "ERR: Invalid Fetch";
@@ -88,7 +137,7 @@ std::vector<std::string> parse_response(std::string_view res, const std::string 
 
     for(size_t i = 0; i < time_array.size(); ++i) {
       std::ostringstream oss;
-      oss << formatTime(time_array[i]) << '\t' << temp_array[i] << "°C";
+      oss << formatTime(time_array[i]) << '\t' << temp_array[i] << "°C\t" << std::round(wind_speed_arr[i] * 10.0) / 10.0 << "m/s\t" << static_cast<int>(std::round(prec_arr[i])) << "mm\t" << parse_weather_code(weather_code_arr[i]);
       print_data(oss.str(), i);
       joined_array.push_back(oss.str());
     }
