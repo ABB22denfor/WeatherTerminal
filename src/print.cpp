@@ -19,7 +19,10 @@ void print_favorites(){
 }
 
 void print_data(const std::string& data_str, int index){
-  if(((index + 1) % 4) == 0 && index != 0){
+  if(((index + 1) % 2) == 0 && index != 0){
+    std::cout << data_str << '\n';
+  }
+  else if(index == 9999){
     std::cout << data_str << '\n';
   }
   else{
