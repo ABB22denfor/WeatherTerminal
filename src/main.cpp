@@ -7,6 +7,7 @@
 #include "../include/request_handler.h"
 #include "../include/cache.h"
 #include "../include/print.h"
+#include "../include/geolocate.h"
 
 std::vector<std::string> favorite_cities;
 
@@ -94,7 +95,16 @@ void execute_args(int argc, char* argv[]){
     return;
   }
   else{
-    print_favorites();
+    if(!print_favorites()){
+      geolocate_user(latitude, longitude);
+      req_time = "now";
+      response = request_data(latitude, longitude, req_time);
+      formatted_data = parse_response(response, latitude, longitude, req_time); 
+      if(formatted_data[0] == "ERROR"){
+        return;
+      }
+      write_to_cache("../cache/user_cache.json", formatted_data, {latitude, longitude});
+    }
   }
 }
 
