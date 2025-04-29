@@ -87,13 +87,13 @@ std::string request_data(std::string latitude, std::string longitude, const std:
 
   
   if(req_time == "day"){
-    req_url = std::format("https://api.open-meteo.com/v1/forecast?latitude={}&longitude={}&hourly=temperature_2m&timezone=Europe%2FBerlin&forecast_days=1", latitude, longitude); 
+    req_url = std::format("https://api.open-meteo.com/v1/forecast?latitude={}&longitude={}&hourly=temperature_2m,wind_speed_10m,precipitation,weather_code&timezone=Europe%2FBerlin&forecast_days=1&wind_speed_unit=ms", latitude, longitude); 
   }
   else if(req_time == "now"){
-    req_url = std::format("https://api.open-meteo.com/v1/forecast?latitude={}&longitude={}&current=temperature_2m&timezone=Europe%2FBerlin", latitude, longitude);
+    req_url = std::format("https://api.open-meteo.com/v1/forecast?latitude={}&longitude={}&current=temperature_2m,wind_speed_10m,precipitation,weather_code&timezone=Europe%2FBerlin&wind_speed_unit=ms", latitude, longitude);
   }
   else if(req_time == "week"){
-    req_url = std::format("https://api.open-meteo.com/v1/forecast?latitude={}&longitude={}&hourly=temperature_2m&timezone=Europe%2FBerlin&forecast_days=7", latitude, longitude);
+    req_url = std::format("https://api.open-meteo.com/v1/forecast?latitude={}&longitude={}&hourly=temperature_2m,wind_speed_10m,precipitation,weather_code&timezone=Europe%2FBerlin&forecast_days=7&wind_speed_unit=ms", latitude, longitude);
   }
 
   if(data_map.find(coord_str) != data_map.end()){
@@ -123,7 +123,12 @@ std::string request_data(std::string latitude, std::string longitude, const std:
       if(!new_req){
         std::cout << "OUTPUT FROM CACHE \n";
         for(int i = 0; i < data_map[coord_str][req_time].size(); ++i){
-          print_data(data_map[coord_str][req_time][i], i);
+          if(i == 0 && i+1 == data_map[coord_str][req_time].size()){
+            print_data(data_map[coord_str][req_time][i], 9999);
+          }
+          else{
+            print_data(data_map[coord_str][req_time][i], i);
+          }
         }
         return empty_str;
       }
