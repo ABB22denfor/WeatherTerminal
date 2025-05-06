@@ -5,6 +5,6 @@
 #include <vector>
 
 std::string getCity(std::string lat, std::string lon);
-std::vector<std::string> parse_response(std::string_view res, const std::string lat, const std::string lon, const std::string req_time);
+std::vector<std::string> parse_response(const std::string& res, const std::string lat, const std::string lon, const std::string req_time);
 
 #endif // !RESPONSE_PARSER_H
