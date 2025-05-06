@@ -99,13 +99,13 @@ std::string parse_weather_code(const int& weather_code){
 }
 
 
-std::vector<std::string> parse_response(std::string_view res, const std::string lat, const std::string lon, const std::string req_time){
+std::vector<std::string> parse_response(const std::string& res, const std::string lat, const std::string lon, const std::string req_time){
   nlohmann::json json_res;
   try{
     json_res = nlohmann::json::parse(res);
   }
   catch(const nlohmann::json::parse_error& e){
-    return {"ERROR"};
+    return {res};
   }
 
 
