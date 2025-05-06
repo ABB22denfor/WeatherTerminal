@@ -130,7 +130,7 @@ std::string request_data(std::string latitude, std::string longitude, const std:
             print_data(data_map[coord_str][req_time][i], i);
           }
         }
-        return empty_str;
+        return data_map[coord_str]["now"][0];
       }
     }
   }
