@@ -24,7 +24,7 @@ void execute_args(int argc, char* argv[]){
   std::string longitude, latitude;
 
   std::string response;
-  std::string req_time = "day";
+  std::string req_time = "now";
 
   bool verbose = false;
   bool added_favorites = false;
@@ -73,7 +73,7 @@ void execute_args(int argc, char* argv[]){
         }
         favorite_cities.push_back(argv[i+j]);
       }
-      write_to_cache("../cache/user_cache.json", favorite_cities, {});
+      write_to_cache("./cache/user_cache.json", favorite_cities, {});
 
       added_favorites = true;
     }
@@ -109,9 +109,10 @@ void execute_args(int argc, char* argv[]){
     if(formatted_data[0] == response){
       return;
     }
-    write_to_cache("../cache/user_cache.json", formatted_data, {latitude, longitude});
+    write_to_cache("./cache/user_cache.json", formatted_data, {latitude, longitude});
   }
   else if (added_favorites){
+    print_favorites();
     return;
   }
   else{
@@ -123,7 +124,7 @@ void execute_args(int argc, char* argv[]){
       if(formatted_data[0] == response){
         return;
       }
-      write_to_cache("../cache/user_cache.json", formatted_data, {latitude, longitude});
+      write_to_cache("./cache/user_cache.json", formatted_data, {latitude, longitude});
     }
   }
 }
