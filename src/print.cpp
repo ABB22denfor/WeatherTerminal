@@ -7,7 +7,7 @@
 using json = nlohmann::json;
 
 bool print_favorites(){
-  std::vector<std::string> favorite_cities = read_from_cache("../cache/user_cache.json")["favorite_cities"];
+  std::vector<std::string> favorite_cities = read_from_cache("./cache/user_cache.json")["favorite_cities"];
 
   std::string longitude, latitude;
 

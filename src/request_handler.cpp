@@ -83,7 +83,7 @@ std::string request_data(std::string latitude, std::string longitude, const std:
 
   std::string coord_str = latitude + " " + longitude;
 
-  std::unordered_map<std::string, std::unordered_map<std::string, std::vector<std::string>>> data_map = read_from_cache("../cache/user_cache.json")["data"];
+  std::unordered_map<std::string, std::unordered_map<std::string, std::vector<std::string>>> data_map = read_from_cache("./cache/user_cache.json")["data"];
 
   
   if(req_time == "day"){

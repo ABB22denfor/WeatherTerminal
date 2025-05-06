@@ -20,8 +20,8 @@ json read_from_cache(const std::string& filename){
 
 void write_to_cache(const std::string& filename, std::vector<std::string> write_data, std::vector<std::string> coords){
   json data;
-  std::vector<std::string> favorite_cities = read_from_cache("../cache/user_cache.json")["favorite_cities"];
-  std::unordered_map<std::string, std::unordered_map<std::string, std::vector<std::string>>> data_map = read_from_cache("../cache/user_cache.json")["data"];
+  std::vector<std::string> favorite_cities = read_from_cache("./cache/user_cache.json")["favorite_cities"];
+  std::unordered_map<std::string, std::unordered_map<std::string, std::vector<std::string>>> data_map = read_from_cache("./cache/user_cache.json")["data"];
 
   if(coords.empty()){
     for(int i = 0; i < write_data.size(); ++i){
