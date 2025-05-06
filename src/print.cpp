@@ -30,7 +30,7 @@ void print_help(){
 
 Flags:
 - -p | --position :  
-    Position of which the app will base it's forecast. Permitted options are: "city" or "lon lat".  
+    Position of which the app will base it's forecast. Permitted options are: "city" or "lat lon".  
 (default: "None")
 - -t | --time :  
     Time period of which the app will forecast. Permitted options are "now", "day", "week" or "month".  
