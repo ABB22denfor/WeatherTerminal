@@ -1,13 +1,14 @@
 //  Standard libraries:
-#include "../include/pch.h"
 #include <cstring>
 
 // Header files:
+#include "../include/pch.h"
 #include "../include/response_parser.h"
 #include "../include/request_handler.h"
 #include "../include/cache.h"
 #include "../include/print.h"
 #include "../include/geolocate.h"
+#include "../include/notify.h"
 
 std::vector<std::string> favorite_cities;
 
@@ -30,6 +31,9 @@ void execute_args(int argc, char* argv[]){
 
   std::vector<std::string> formatted_data;
 
+  std::string notif_delay;
+  bool send_notif;
+
 
   for(int i = 1; i < argc; ++i){
     std::string flag = argv[i];
@@ -45,7 +49,7 @@ void execute_args(int argc, char* argv[]){
         get_coords(argv[i+1], longitude, latitude);
       }
       else{
-        std::cerr << "Options for flag omitted. Aborting..." << '\n';
+        std::cout << "Option invalid. Use ./WeatherApp -h for more info...\n";
         return;
       }
     }
@@ -53,16 +57,16 @@ void execute_args(int argc, char* argv[]){
       if(i+1 < argc && (validTimePeriods.find(argv[i+1]) != validTimePeriods.end())){
         req_time = argv[i+1];
       }
-      else if(i+1 == argc){
-        std::cerr << "Options for flag omitted. Aborting..." << '\n';
-        return;
-      }
       else{
-        std::cerr << "Option invalid. See documentation..." << '\n';
+        std::cout << "Option invalid. Use ./WeatherApp -h for more info...\n";
         return;
       }
     }
     else if(flag == "-f" || flag == "--favorite"){
+      if(i+1 == argc){
+        std::cout << "Option invalid. Use ./WeatherApp -h for more info...\n";
+        return;
+      }
       for(int j = 1; i+j < argc; ++j){
         if(strchr(argv[i+j], '-') != nullptr){
           break;
@@ -74,19 +78,35 @@ void execute_args(int argc, char* argv[]){
       added_favorites = true;
     }
     else if(flag == "-c" || flag == "--clear"){
-      clear_cache("../cache/user_cache.json");
+      std::cout << "Work In Progress... Will break application\n";
+      return;
     }
-    else if(flag == "-v" || flag == "--verbose"){
+    else if(flag == "-n" || flag == "--notification"){
       if(i+1 < argc){
-        verbose = ((strcmp(argv[i+1], "true")) == 0) ? true : false;
-      } 
+        notif_delay = argv[i+1];
+        send_notif = true;
+      }
+      else{
+        std::cout << "Option invalid. Use ./WeatherApp -h for more info...\n";
+        return;
+      }
+    }
+    else if(flag == "-h" || flag == "--help"){
+      print_help();
+      return;
     }
   }
 
   if(!latitude.empty() && !longitude.empty()){
+    if(send_notif){
+      send_notification(notif_delay, latitude, longitude);
+      return;
+    }
+
     response = request_data(latitude, longitude, req_time);
     formatted_data = parse_response(response, latitude, longitude, req_time); 
-    if(formatted_data[0] == "ERROR"){
+
+    if(formatted_data[0] == response){
       return;
     }
     write_to_cache("../cache/user_cache.json", formatted_data, {latitude, longitude});
@@ -100,7 +120,7 @@ void execute_args(int argc, char* argv[]){
       req_time = "now";
       response = request_data(latitude, longitude, req_time);
       formatted_data = parse_response(response, latitude, longitude, req_time); 
-      if(formatted_data[0] == "ERROR"){
+      if(formatted_data[0] == response){
         return;
       }
       write_to_cache("../cache/user_cache.json", formatted_data, {latitude, longitude});
