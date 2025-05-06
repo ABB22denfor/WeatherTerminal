@@ -1,7 +1,6 @@
 /lib
 /build
 /.cache
-/cache/*
 
 # Prerequisites
 *.d
