@@ -111,11 +111,71 @@ CMakeFiles/WeatherApp.dir/src/response_parser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/WeatherApp.dir/src/response_parser.cpp.s"
 	g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Programmering/Personal/Projects/WeatherTerminal/src/response_parser.cpp -o CMakeFiles/WeatherApp.dir/src/response_parser.cpp.s
 
+CMakeFiles/WeatherApp.dir/src/print.cpp.o: CMakeFiles/WeatherApp.dir/flags.make
+CMakeFiles/WeatherApp.dir/src/print.cpp.o: src/print.cpp
+CMakeFiles/WeatherApp.dir/src/print.cpp.o: CMakeFiles/WeatherApp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Programmering/Personal/Projects/WeatherTerminal/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/WeatherApp.dir/src/print.cpp.o"
+	g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WeatherApp.dir/src/print.cpp.o -MF CMakeFiles/WeatherApp.dir/src/print.cpp.o.d -o CMakeFiles/WeatherApp.dir/src/print.cpp.o -c /mnt/c/Programmering/Personal/Projects/WeatherTerminal/src/print.cpp
+
+CMakeFiles/WeatherApp.dir/src/print.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/WeatherApp.dir/src/print.cpp.i"
+	g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Programmering/Personal/Projects/WeatherTerminal/src/print.cpp > CMakeFiles/WeatherApp.dir/src/print.cpp.i
+
+CMakeFiles/WeatherApp.dir/src/print.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/WeatherApp.dir/src/print.cpp.s"
+	g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Programmering/Personal/Projects/WeatherTerminal/src/print.cpp -o CMakeFiles/WeatherApp.dir/src/print.cpp.s
+
+CMakeFiles/WeatherApp.dir/src/cache.cpp.o: CMakeFiles/WeatherApp.dir/flags.make
+CMakeFiles/WeatherApp.dir/src/cache.cpp.o: src/cache.cpp
+CMakeFiles/WeatherApp.dir/src/cache.cpp.o: CMakeFiles/WeatherApp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Programmering/Personal/Projects/WeatherTerminal/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/WeatherApp.dir/src/cache.cpp.o"
+	g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WeatherApp.dir/src/cache.cpp.o -MF CMakeFiles/WeatherApp.dir/src/cache.cpp.o.d -o CMakeFiles/WeatherApp.dir/src/cache.cpp.o -c /mnt/c/Programmering/Personal/Projects/WeatherTerminal/src/cache.cpp
+
+CMakeFiles/WeatherApp.dir/src/cache.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/WeatherApp.dir/src/cache.cpp.i"
+	g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Programmering/Personal/Projects/WeatherTerminal/src/cache.cpp > CMakeFiles/WeatherApp.dir/src/cache.cpp.i
+
+CMakeFiles/WeatherApp.dir/src/cache.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/WeatherApp.dir/src/cache.cpp.s"
+	g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Programmering/Personal/Projects/WeatherTerminal/src/cache.cpp -o CMakeFiles/WeatherApp.dir/src/cache.cpp.s
+
+CMakeFiles/WeatherApp.dir/src/geolocate.cpp.o: CMakeFiles/WeatherApp.dir/flags.make
+CMakeFiles/WeatherApp.dir/src/geolocate.cpp.o: src/geolocate.cpp
+CMakeFiles/WeatherApp.dir/src/geolocate.cpp.o: CMakeFiles/WeatherApp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Programmering/Personal/Projects/WeatherTerminal/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/WeatherApp.dir/src/geolocate.cpp.o"
+	g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WeatherApp.dir/src/geolocate.cpp.o -MF CMakeFiles/WeatherApp.dir/src/geolocate.cpp.o.d -o CMakeFiles/WeatherApp.dir/src/geolocate.cpp.o -c /mnt/c/Programmering/Personal/Projects/WeatherTerminal/src/geolocate.cpp
+
+CMakeFiles/WeatherApp.dir/src/geolocate.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/WeatherApp.dir/src/geolocate.cpp.i"
+	g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Programmering/Personal/Projects/WeatherTerminal/src/geolocate.cpp > CMakeFiles/WeatherApp.dir/src/geolocate.cpp.i
+
+CMakeFiles/WeatherApp.dir/src/geolocate.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/WeatherApp.dir/src/geolocate.cpp.s"
+	g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Programmering/Personal/Projects/WeatherTerminal/src/geolocate.cpp -o CMakeFiles/WeatherApp.dir/src/geolocate.cpp.s
+
+CMakeFiles/WeatherApp.dir/src/notify.cpp.o: CMakeFiles/WeatherApp.dir/flags.make
+CMakeFiles/WeatherApp.dir/src/notify.cpp.o: src/notify.cpp
+CMakeFiles/WeatherApp.dir/src/notify.cpp.o: CMakeFiles/WeatherApp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Programmering/Personal/Projects/WeatherTerminal/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/WeatherApp.dir/src/notify.cpp.o"
+	g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WeatherApp.dir/src/notify.cpp.o -MF CMakeFiles/WeatherApp.dir/src/notify.cpp.o.d -o CMakeFiles/WeatherApp.dir/src/notify.cpp.o -c /mnt/c/Programmering/Personal/Projects/WeatherTerminal/src/notify.cpp
+
+CMakeFiles/WeatherApp.dir/src/notify.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/WeatherApp.dir/src/notify.cpp.i"
+	g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Programmering/Personal/Projects/WeatherTerminal/src/notify.cpp > CMakeFiles/WeatherApp.dir/src/notify.cpp.i
+
+CMakeFiles/WeatherApp.dir/src/notify.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/WeatherApp.dir/src/notify.cpp.s"
+	g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Programmering/Personal/Projects/WeatherTerminal/src/notify.cpp -o CMakeFiles/WeatherApp.dir/src/notify.cpp.s
+
 # Object files for target WeatherApp
 WeatherApp_OBJECTS = \
 "CMakeFiles/WeatherApp.dir/src/main.cpp.o" \
 "CMakeFiles/WeatherApp.dir/src/request_handler.cpp.o" \
-"CMakeFiles/WeatherApp.dir/src/response_parser.cpp.o"
+"CMakeFiles/WeatherApp.dir/src/response_parser.cpp.o" \
+"CMakeFiles/WeatherApp.dir/src/print.cpp.o" \
+"CMakeFiles/WeatherApp.dir/src/cache.cpp.o" \
+"CMakeFiles/WeatherApp.dir/src/geolocate.cpp.o" \
+"CMakeFiles/WeatherApp.dir/src/notify.cpp.o"
 
 # External object files for target WeatherApp
 WeatherApp_EXTERNAL_OBJECTS =
@@ -123,9 +183,13 @@ WeatherApp_EXTERNAL_OBJECTS =
 WeatherApp: CMakeFiles/WeatherApp.dir/src/main.cpp.o
 WeatherApp: CMakeFiles/WeatherApp.dir/src/request_handler.cpp.o
 WeatherApp: CMakeFiles/WeatherApp.dir/src/response_parser.cpp.o
+WeatherApp: CMakeFiles/WeatherApp.dir/src/print.cpp.o
+WeatherApp: CMakeFiles/WeatherApp.dir/src/cache.cpp.o
+WeatherApp: CMakeFiles/WeatherApp.dir/src/geolocate.cpp.o
+WeatherApp: CMakeFiles/WeatherApp.dir/src/notify.cpp.o
 WeatherApp: CMakeFiles/WeatherApp.dir/build.make
 WeatherApp: CMakeFiles/WeatherApp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Programmering/Personal/Projects/WeatherTerminal/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable WeatherApp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Programmering/Personal/Projects/WeatherTerminal/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable WeatherApp"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/WeatherApp.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

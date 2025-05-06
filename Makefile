@@ -129,6 +129,54 @@ WeatherApp/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/WeatherApp.dir/build.make CMakeFiles/WeatherApp.dir/build
 .PHONY : WeatherApp/fast
 
+src/cache.o: src/cache.cpp.o
+.PHONY : src/cache.o
+
+# target to build an object file
+src/cache.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WeatherApp.dir/build.make CMakeFiles/WeatherApp.dir/src/cache.cpp.o
+.PHONY : src/cache.cpp.o
+
+src/cache.i: src/cache.cpp.i
+.PHONY : src/cache.i
+
+# target to preprocess a source file
+src/cache.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WeatherApp.dir/build.make CMakeFiles/WeatherApp.dir/src/cache.cpp.i
+.PHONY : src/cache.cpp.i
+
+src/cache.s: src/cache.cpp.s
+.PHONY : src/cache.s
+
+# target to generate assembly for a file
+src/cache.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WeatherApp.dir/build.make CMakeFiles/WeatherApp.dir/src/cache.cpp.s
+.PHONY : src/cache.cpp.s
+
+src/geolocate.o: src/geolocate.cpp.o
+.PHONY : src/geolocate.o
+
+# target to build an object file
+src/geolocate.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WeatherApp.dir/build.make CMakeFiles/WeatherApp.dir/src/geolocate.cpp.o
+.PHONY : src/geolocate.cpp.o
+
+src/geolocate.i: src/geolocate.cpp.i
+.PHONY : src/geolocate.i
+
+# target to preprocess a source file
+src/geolocate.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WeatherApp.dir/build.make CMakeFiles/WeatherApp.dir/src/geolocate.cpp.i
+.PHONY : src/geolocate.cpp.i
+
+src/geolocate.s: src/geolocate.cpp.s
+.PHONY : src/geolocate.s
+
+# target to generate assembly for a file
+src/geolocate.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WeatherApp.dir/build.make CMakeFiles/WeatherApp.dir/src/geolocate.cpp.s
+.PHONY : src/geolocate.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -152,6 +200,54 @@ src/main.s: src/main.cpp.s
 src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/WeatherApp.dir/build.make CMakeFiles/WeatherApp.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
+
+src/notify.o: src/notify.cpp.o
+.PHONY : src/notify.o
+
+# target to build an object file
+src/notify.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WeatherApp.dir/build.make CMakeFiles/WeatherApp.dir/src/notify.cpp.o
+.PHONY : src/notify.cpp.o
+
+src/notify.i: src/notify.cpp.i
+.PHONY : src/notify.i
+
+# target to preprocess a source file
+src/notify.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WeatherApp.dir/build.make CMakeFiles/WeatherApp.dir/src/notify.cpp.i
+.PHONY : src/notify.cpp.i
+
+src/notify.s: src/notify.cpp.s
+.PHONY : src/notify.s
+
+# target to generate assembly for a file
+src/notify.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WeatherApp.dir/build.make CMakeFiles/WeatherApp.dir/src/notify.cpp.s
+.PHONY : src/notify.cpp.s
+
+src/print.o: src/print.cpp.o
+.PHONY : src/print.o
+
+# target to build an object file
+src/print.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WeatherApp.dir/build.make CMakeFiles/WeatherApp.dir/src/print.cpp.o
+.PHONY : src/print.cpp.o
+
+src/print.i: src/print.cpp.i
+.PHONY : src/print.i
+
+# target to preprocess a source file
+src/print.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WeatherApp.dir/build.make CMakeFiles/WeatherApp.dir/src/print.cpp.i
+.PHONY : src/print.cpp.i
+
+src/print.s: src/print.cpp.s
+.PHONY : src/print.s
+
+# target to generate assembly for a file
+src/print.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WeatherApp.dir/build.make CMakeFiles/WeatherApp.dir/src/print.cpp.s
+.PHONY : src/print.cpp.s
 
 src/request_handler.o: src/request_handler.cpp.o
 .PHONY : src/request_handler.o
@@ -210,9 +306,21 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... WeatherApp"
+	@echo "... src/cache.o"
+	@echo "... src/cache.i"
+	@echo "... src/cache.s"
+	@echo "... src/geolocate.o"
+	@echo "... src/geolocate.i"
+	@echo "... src/geolocate.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/notify.o"
+	@echo "... src/notify.i"
+	@echo "... src/notify.s"
+	@echo "... src/print.o"
+	@echo "... src/print.i"
+	@echo "... src/print.s"
 	@echo "... src/request_handler.o"
 	@echo "... src/request_handler.i"
 	@echo "... src/request_handler.s"

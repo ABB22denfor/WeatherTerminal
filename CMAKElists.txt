@@ -11,6 +11,10 @@ add_executable(WeatherApp
   src/main.cpp
   src/request_handler.cpp
   src/response_parser.cpp
+  src/print.cpp
+  src/cache.cpp
+  src/geolocate.cpp
+  src/notify.cpp
 )
 
 target_link_libraries(WeatherApp PRIVATE -lcurl)
