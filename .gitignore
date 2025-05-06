@@ -1,6 +1,7 @@
 /lib
 /build
 /.cache
+/cache/*
 
 # Prerequisites
 *.d
@@ -34,3 +35,5 @@
 *.exe
 *.out
 *.app
+
+TODO.md
